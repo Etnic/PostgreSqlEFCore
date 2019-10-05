@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgreSqlEFCore", "mysqlentityframework\PostgreSqlEFCore.csproj", "{B6F42D59-C7FD-4146-A544-DACCAF9DE41D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6F42D59-C7FD-4146-A544-DACCAF9DE41D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6F42D59-C7FD-4146-A544-DACCAF9DE41D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6F42D59-C7FD-4146-A544-DACCAF9DE41D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6F42D59-C7FD-4146-A544-DACCAF9DE41D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACDB789B-8D26-4BFA-93B4-A8ECA0EE832A}
+	EndGlobalSection
+EndGlobal
