@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MySqlEntityFramework
+namespace PostgreSqlEFCore
 {
     public partial class Country
     {

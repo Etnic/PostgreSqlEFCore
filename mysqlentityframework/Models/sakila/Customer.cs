@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MySqlEntityFramework.Models
+namespace PostgreSqlEFCore.Models
 {
     public partial class Customer
     {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace MySqlEntityFramework.Models
+namespace PostgreSqlEFCore.Models
 {
     public partial class SakilaContext : DbContext
     {

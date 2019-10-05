@@ -1,11 +1,11 @@
-﻿using MySqlEntityFramework;
-using MySqlEntityFramework.Models;
+﻿using PostgreSqlEFCore;
+using PostgreSqlEFCore.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace mysqlentityframework
+namespace PostgreSqlEFCore
 {
     class Program
     {

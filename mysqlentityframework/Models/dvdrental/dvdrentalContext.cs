@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace MySqlEntityFramework
+namespace PostgreSqlEFCore
 {
     public partial class DvdrentalContext : DbContext
     {

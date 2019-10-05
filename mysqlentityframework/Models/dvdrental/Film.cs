@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NpgsqlTypes;
 
-namespace MySqlEntityFramework
+namespace PostgreSqlEFCore
 {
     public partial class Film
     {
