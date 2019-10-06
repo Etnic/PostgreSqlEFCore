@@ -13,50 +13,34 @@ namespace PostgreSqlEFCore
         {
             using (var ctx = new DvdrentalContext())
             {
-                // 1. Which actors have the first name ‘Scarlett’ => 2
-                //var restult = ctx.Actor.Where(x => x.FirstName == "Scarlett").ToList();
+                // 6. Is 'Academy Dinosaur' available for rent from Store 1 ?
 
-                // 2. How many distinct actors last names are there? => 122
-                //var restult = ctx.Actor.Select(x => x.LastName).Distinct().ToList();
+                var res = (from c in ctx.Customer
+                           join r in ctx.Rental on c.CustomerId equals r.CustomerId
+                           join i in ctx.Inventory on r.InventoryId equals i.InventoryId
+                           join f in ctx.Film on i.FilmId equals f.FilmId
+                           where f.Title == "Academy Dinosaur"
+                           select new { c.FirstName, c.LastName }).OrderBy(x => x.LastName);
 
-                //var restult = ctx.Actor.GroupBy(x => x.LastName)
-                //                        .Select(x => x.First())
-                //                        .ToList().Count;
+                //var id = from c in ctx.Customer
+                //         where c.LastName == "Smith" && c.FirstName == "Marry"
+                //         select c.CustomerId;
 
-                //var restult = ctx.Actor.GroupBy(x => new { x.LastName, x.FirstName })
-                //                        .Select(x => x.First())
-                //                        .ToList().Count;
+                //var xy = ctx.Customer.Where(x => x.FirstName == "Mary" && x.LastName == "Smith").Select(x => x.CustomerId).FirstOrDefault();
 
-                // 3. Which last names are not repeated?
-                var restult = ctx.Actor.Select(x => x.LastName).ToList();
-                var arrayOfAllNames = new List<string>();
-                var arrayOfDuplicateNames = new List<string>();
-                var arrayOfSingleNames = new List<string>();
+                //var rental = new Rental()
+                //{
+                //    CustomerId = xy,
+                //    RentalDate = DateTime.Now,
+                //    StaffId = 1,
+                //    InventoryId = 1
+                //};
 
-                foreach (var item in restult)
-                {
-                    if (!arrayOfAllNames.Contains(item))
-                    {
-                        arrayOfAllNames.Add(item);
-                    }
-                    else if(!arrayOfDuplicateNames.Contains(item))
-                    {
-                        arrayOfDuplicateNames.Add(item);
-                    }
-                }
+                //ctx.Rental.Add(rental);
+                //ctx.SaveChanges();
 
-                foreach (var allName in arrayOfAllNames)
-                {
-                    if (!arrayOfDuplicateNames.Contains(allName))
-                    {
-                        arrayOfSingleNames.Add(allName);
-                    }
-                }
 
-                var filteredList = ctx.Actor.GroupBy(x => x.LastName)
-                                  .Where(x => x.Count() == 1)
-                                  .OrderBy(x =>x.Key)
-                                  .Select(x => x.First());
+
             }
 
         }
