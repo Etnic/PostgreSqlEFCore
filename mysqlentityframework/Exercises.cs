@@ -21,10 +21,6 @@ namespace PostgreSqlEFCore
             //                        .Select(x => x.First())
             //                        .ToList().Count;
 
-            //var restult = ctx.Actor.GroupBy(x => new { x.LastName, x.FirstName })
-            //                        .Select(x => x.First())
-            //                        .ToList().Count;
-
             // 3. Which last names are not repeated?
             var restult = ctx.Actor.Select(x => x.LastName).ToList();
             var arrayOfAllNames = new List<string>();

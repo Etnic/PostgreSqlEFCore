@@ -75,7 +75,7 @@ where rental_id = (select rental_id from rental order by rental_id desc limit 1)
 
 select avg(length) from film;
 
-\! echo What is the average length of films by category?
+\! echo 
 
 select category.name, avg(length)
 from film join film_category using (film_id) join category using (category_id)

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using PostgreSqlEFCore.Models.dvdrental.Views;
 
 namespace PostgreSqlEFCore
 {
@@ -32,6 +33,7 @@ namespace PostgreSqlEFCore
         public virtual DbSet<Store> Store { get; set; }
 
         public DbQuery<JohannsonName> JohannsonName { get; set; }
+        public DbQuery<AverageFilmList> AverageFilmList { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -292,8 +294,7 @@ namespace PostgreSqlEFCore
             });
 
             modelBuilder.Query<JohannsonName>(entity =>
-            {             
-
+            {      
                 entity.ToView("name");
 
                 entity.Property(e => e.ActorId).HasColumnName("sum");
@@ -307,8 +308,14 @@ namespace PostgreSqlEFCore
                     .IsRequired()
                     .HasColumnName("last_name")
                     .HasMaxLength(45);
+            });
 
+            modelBuilder.Query<AverageFilmList>(entity =>
+            {
+                entity.ToView("average_film_list");
 
+                entity.Property(e => e.Avg).HasColumnName("avg");
+                entity.Property(e => e.Name).HasColumnName("name");                
             });
 
 
