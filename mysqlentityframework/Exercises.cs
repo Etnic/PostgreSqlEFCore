@@ -80,6 +80,31 @@ namespace PostgreSqlEFCore
                       join store in ctx.Store on film.FilmId equals store.StoreId
                       where film.Title == "Academy Dinosaur" && store.StoreId == 1
                       select new { film.Title, store.StoreId };
+
+            //  7.Insert a record to represent Mary Smith renting 'Academy Dinosaur' from Mike Hillyer at Store 1 today
+            //var id = from c in ctx.Customer
+            //         where c.LastName == "Smith" && c.FirstName == "Marry"
+            //         select c.CustomerId;
+
+            //var xy = ctx.Customer.Where(x => x.FirstName == "Mary" && x.LastName == "Smith").Select(x => x.CustomerId).FirstOrDefault();
+
+            //var rental = new Rental()
+            //{
+            //    CustomerId = xy,
+            //    RentalDate = DateTime.Now,
+            //    StaffId = 1,
+            //    InventoryId = 1
+            //};
+
+            //ctx.Rental.Add(rental);
+            //ctx.SaveChanges();
+
+            //var res = (from c in ctx.Customer
+            //           join r in ctx.Rental on c.CustomerId equals r.CustomerId
+            //           join i in ctx.Inventory on r.InventoryId equals i.InventoryId
+            //           join f in ctx.Film on i.FilmId equals f.FilmId
+            //           where f.Title == "Academy Dinosaur"
+            //           select new { c.FirstName, c.LastName }).OrderBy(x => x.LastName);
         }
     }
 }

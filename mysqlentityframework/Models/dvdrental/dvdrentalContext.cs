@@ -31,6 +31,8 @@ namespace PostgreSqlEFCore
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Store> Store { get; set; }
 
+        public DbQuery<JohannsonName> JohannsonName { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -288,6 +290,27 @@ namespace PostgreSqlEFCore
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("film_language_id_fkey");
             });
+
+            modelBuilder.Query<JohannsonName>(entity =>
+            {             
+
+                entity.ToView("name");
+
+                entity.Property(e => e.ActorId).HasColumnName("sum");
+
+                entity.Property(e => e.FirstName)
+                   .IsRequired()
+                   .HasColumnName("first_name")
+                   .HasMaxLength(45);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasColumnName("last_name")
+                    .HasMaxLength(45);
+
+
+            });
+
 
             modelBuilder.Entity<FilmActor>(entity =>
             {
